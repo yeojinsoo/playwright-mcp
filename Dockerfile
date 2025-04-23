@@ -7,7 +7,7 @@ WORKDIR /app
 COPY package*.json ./
 
 # Install dependencies
-RUN npm ci
+RUN npm install
 
 # Install chromium and its dependencies, but only for headless mode
 RUN npx -y playwright install --with-deps --only-shell chromium
@@ -18,5 +18,8 @@ COPY . .
 # Build the app
 RUN npm run build
 
-# Run in headless and only with chromium (other browsers need more dependencies not included in this image)
-ENTRYPOINT ["node", "cli.js", "--headless", "--browser", "chromium"]
+# Expose the SSE server port
+EXPOSE 8080
+
+# Run in headless and only with chromium with SSE enabled on port 8080
+ENTRYPOINT ["node", "cli.js", "--headless", "--browser", "chromium", "--port", "8080"]

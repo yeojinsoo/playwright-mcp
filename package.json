@@ -24,7 +24,9 @@
     "ftest": "playwright test --project=firefox",
     "wtest": "playwright test --project=webkit",
     "clean": "rm -rf lib",
-    "npm-publish": "npm run clean && npm run build && npm run test && npm publish"
+    "npm-publish": "npm run clean && npm run build && npm run test && npm publish",
+    "docker:build": "docker build -t asia-northeast3-docker.pkg.dev/phoz-7f0de/mayacrew/playwright-mcp-server:sse .",
+    "docker:push": "docker push asia-northeast3-docker.pkg.dev/phoz-7f0de/mayacrew/playwright-mcp-server:sse"
   },
   "exports": {
     "./package.json": "./package.json",
@@ -38,6 +40,7 @@
     "commander": "^13.1.0",
     "playwright": "1.53.0-alpha-1745357020000",
     "yaml": "^2.7.1",
+    "zod": "^3.24.3",
     "zod-to-json-schema": "^3.24.4"
   },
   "devDependencies": {

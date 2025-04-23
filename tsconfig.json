@@ -6,9 +6,8 @@
     "moduleResolution": "node",
     "strict": true,
     "module": "CommonJS",
-    "outDir": "./lib"
+    "outDir": "./lib",
+    "noImplicitAny": false
   },
-  "include": [
-    "src",
-  ],
+  "include": ["src"]
 }
